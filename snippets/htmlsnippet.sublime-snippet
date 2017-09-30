@@ -1,0 +1,17 @@
+<snippet>
+	<content><![CDATA[
+	{!! Form::open() !!}
+	<div class="form-group">
+	{!! Form::label('title', 'Title:') !!}
+	{!! Form::text('name', null, ['class' => 'form-control', 'foo' => 'bar']) !!}
+	{!! Form::submit('Add Channel', ['class' => 'btn btn-primary form-control']) !!}
+	</div>
+	{!! Form::close() !!}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>formsnippet</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+
+</snippet>
+

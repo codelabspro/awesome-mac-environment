@@ -1,0 +1,358 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it here:
+# https://github.com/bevry/cson#what-is-cson
+
+# ---------------------------------------------------------------------------
+'.source.js':
+  'FamousEngine CustomNode constructor':
+    'prefix': 'customnodeconstructor'
+    'body': """
+
+var DOMElement = require('famous/dom-renderables/DOMElement');
+var FamousEngine = require('famous/core/FamousEngine');
+var Transitionable = require('famous/transitions/Transitionable');
+var Size = require('famous/components/Size');
+var Node = require('famous/core/Node');
+var FIRST_X_POSITION = 100;
+var Y_POSITION = 200;
+function CustomNode(bgUrl, bgColor, xpos, ypos, width, height) {
+  Node.call(this);
+  this.setSizeMode('absolute', 'absolute')
+          .setAbsoluteSize(width, height)
+          .setPosition(xpos,ypos);
+  this.nodeDomElement = new DOMElement(this);
+  this.nodeDomElement.setProperty('backgroundImage', bgUrl);
+  this.nodeDomElement.setProperty('zIndex', '2');
+  this.nodeDomElement.setProperty('background-color', bgColor);
+}
+CustomNode.prototype = Object.create(Node.prototype);
+CustomNode.prototype.constructor = CustomNode;
+module.exports = CustomNode;
+"""
+# ---------------------------------------------------------------------------
+  'FamousEngine call CustomNode':
+    'prefix': 'callcustomnode'
+    'body': """
+var scene = FamousEngine.createScene('body');
+var rootNode = scene.addChild();
+var farBuildings = rootNode.addChild(new CustomNode('url(images/parallax_far_buildings.png)', '#B3E5FC', 0, 0, 1800, 500));
+"""
+
+  'FamousEngine MovingNode constructor':
+    'prefix': 'movingnodeconstructor'
+    'body': """
+var DOMElement = require('famous/dom-renderables/DOMElement');
+var FamousEngine = require('famous/core/FamousEngine');
+var Transitionable = require('famous/transitions/Transitionable');
+var Size = require('famous/components/Size');
+var Node = require('famous/core/Node');
+var FIRST_X_POSITION = 100;
+var Y_POSITION = 200;
+function MovingNode(bgUrl, bgColor, xpos, ypos, width, height) {
+  Node.call(this);
+  this.setSizeMode('absolute', 'absolute')
+          .setAbsoluteSize(100, 100)
+          .setPosition(xpos,ypos);
+  this.nodeDomElement = new DOMElement(this);
+  this.nodeDomElement.setProperty('backgroundImage', bgUrl);
+  this.nodeDomElement.setProperty('zIndex', '2');
+}
+MovingNode.prototype = Object.create(Node.prototype);
+MovingNode.prototype.constructor = MovingNode;
+module.exports = MovingNode;
+"""
+
+# ---------------------------------------------------------------------------
+
+  'FamousEngine Position set':
+    'prefix': 'famousenginepositionset'
+    'body': """
+var newPosition = Position(node);
+newPosition.set(0, 0, -300 { duration: 3000, curve: 'outQuad' });
+"""
+
+  'FamousEngine switch case':
+    'prefix': 'famousengineswitchcase'
+    'body': """
+
+window.addEventListener('keydown', function(e) {
+  switch(e.keyCode) {
+    case KeyCodes.RIGHT_ARROW:
+    break;
+    case KeyCodes.LEFT_ARROW:
+    break;
+    case KeyCodes.UP_ARROW:
+    break;
+    case KeyCodes.DOWN_ARROW:
+    break;
+  }
+}.bind(this));
+"""
+
+# ---------------------------------------------------------------------------
+  'FamousEngine Position set':
+    'prefix': 'famousenginewindoweventlistener'
+    'body': """
+      window.addEventListener('keydown', function(e) {
+        console.log('keydown occured');
+        if (e.keyCode === KeyCodes.RIGHT_ARROW) {
+          console.log('Right arrow was pressed');
+          var positionComponent = new Position(plane);
+          positionComponent.set(500, 0, 0, { duration: 3000, curve: 'outQuad' });
+        }
+      }.bind(this));
+"""
+
+# ---------------------------------------------------------------------------
+
+  'FamousEngine Initialize myscene':
+    'prefix': 'famousengineinitializemyscene'
+    'body': """
+var tilesData = require('./data/tiles_data.json');
+var MyScene = require('./components/MyScene');
+var myscene = new MyScene('body', { tilesData: tilesData });
+"""
+
+# ---------------------------------------------------------------------------
+  'FamousEngine Create myscene':
+    'prefix': 'famousenginecreatemyscene'
+    'body': """
+var MyScene = require('./components/MyScene');
+var myscene = new MyScene('body', { tilesData: tilesData });
+var FamousEngine = require('famous/core/FamousEngine');
+var DOMElement = require('famous/dom-renderables/DOMElement');
+var Position = require('famous/components/Position');
+var Transitionable = require('famous/transitions/Transitionable');
+var Size = require('famous/components/Size')
+var KeyCodes = require('../utils/KeyCodes.js');
+var Transitionable = require('famous/transitions/Transitionable');
+function MyScene(selector, data) {
+  this.context = FamousEngine.createScene(selector);
+  this.rootNode = this.context.addChild();
+
+  this.tilesData = data.tilesData;
+
+  this.tiles = [];
+}
+module.exports = MyScene;
+"""
+
+# ---------------------------------------------------------------------------
+  'FamousEngine declare data':
+    'prefix': 'famousenginedeclaredata'
+    'body': """
+[
+    {
+        "bgUrl": "images/node-01.png"
+    },
+    {
+        "bgUrl": "images/node-02.png"
+    },
+    {
+        "bgUrl": "images/node-03.png"
+    },
+    {
+        "bgUrl": "images/node-04.png"
+    },
+    {
+        "bgUrl": "images/node-05.png"
+    },
+    {
+        "bgUrl": "images/node-06.png"
+    },
+    {
+        "bgUrl": "images/node-07.png"
+    },
+    {
+        "bgUrl": "images/node-08.png"
+    }
+]
+"""
+
+# ---------------------------------------------------------------------------
+# source.html
+# ---------------------------------------------------------------------------
+'.text.html':
+  'Polymer createcustomelement':
+    'prefix': 'polymercreatecustomelement'
+    'body': """
+<dom-module id="x-person">
+  <style>
+    :host {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      h1.paper-font-display1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+  <template>
+    <h1 class="paper-font-display1"><span>{{greeting}}</span></h1>
+    <span class="paper-font-body2">Update text to change the greeting.</span>
+    <!-- Listens for "input" event and sets greeting to <input>.value -->
+    <input class="paper-font-body2" value="{{greeting::input}}">
+  </template>
+</dom-module>
+<script>
+  (function() {
+    Polymer({
+      is: 'x-person',
+
+      properties: {
+        greeting: {
+          type: String,
+          value: 'Welcome!',
+          notify: true
+        }
+      }
+    });
+  })();
+</script>
+"""
+# ---------------------------------------------------------------------------
+'.text.ejs':
+  'Html usersignupform':
+    'prefix': 'htmlusersignupform'
+    'body': """
+<form action="/user/create" method="POST" class="form-signin">
+   <h2 class="form-signin-heading">Create an account</h2>
+   <input type="text" class="form-control" placeholder="your name" name="name">
+   <input type="text" class="form-control" placeholder="your title" name="title">
+   <input type="text" class="form-control" placeholder="email address" name="email">
+   <input type="password" class="form-control" placeholder="password" name="password">
+   <input type="password" class="form-control" placeholder="password confirmation" name="confirmation">
+   <br/>
+   <input type="submit" class="btn btn-lg btn-primary btn-block" value="Create Account"/>
+   <input type="hidden" name="_csrf" value="<%=_csrf %>"/>
+</form>
+"""
+# ---------------------------------------------------------------------------
+'.text.html':
+  'Html usersignupform':
+    'prefix': 'htmlusersignupform'
+    'body': """
+<form action="/user/create" method="POST" class="form-signin">
+   <h2 class="form-signin-heading">Create an account</h2>
+   <input type="text" class="form-control" placeholder="your name" name="name">
+   <input type="text" class="form-control" placeholder="your title" name="title">
+   <input type="text" class="form-control" placeholder="email address" name="email">
+   <input type="password" class="form-control" placeholder="password" name="password">
+   <input type="password" class="form-control" placeholder="password confirmation" name="confirmation">
+   <br/>
+   <input type="submit" class="btn btn-lg btn-primary btn-block" value="Create Account"/>
+   <input type="hidden" name="_csrf" value="<%=_csrf %>"/>
+</form>
+"""
+# ---------------------------------------------------------------------------
+'.text.html':
+  'Aurelia index html':
+    'prefix': 'aureliaindexhtml'
+    'body': """
+<!doctype html>
+<html>
+  <head>
+    <title>Aurelia</title>
+    <link rel="stylesheet" type="text/css" href="jspm_packages/npm/font-awesome@4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body aurelia-app="animation-main">
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+    System.config({
+      "paths" : {
+        "*" : "dist/*.js"
+      }
+    });
+    </script>
+    <script>
+      System.import('aurelia-bootstrapper');
+    </script>
+  </body>
+</html>
+"""
+# ---------------------------------------------------------------------------
+'.text.html':
+  'Foundation index html':
+    'prefix': 'foundationindexhtml'
+    'body': """
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Laravel</title>
+  <link rel="stylesheet" href="css/foundation.css" />
+  <script src="js/vendor/modernizr.js"></script>
+
+</head>
+<body>
+    <!-- Header and Nav -->
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">CafeTM</a></h1>
+        </li>
+      </ul>
+    </nav>
+    <!-- End Header and Nav -->
+    <div class="row">
+      <div class="large-12">
+        <h1>Hi</h1>
+      </div>
+    </div>
+
+    <!-- Footer -->
+
+    <footer class="row">
+      <div class="large-12 columns">
+        <hr/>
+        <div class="row">
+          <div class="large-6 columns">
+            <p>Cafe TM</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+    $(document).foundation();
+    </script>
+
+</body>
+</html>
+"""
+# ---------------------------------------------------------------------------
+'.text.js':
+  'Dom tricks js':
+    'prefix': 'domtricks'
+    'body': """
+        var myLauncher = document.getElementById("myLauncher");
+        var myBody = myLauncher.parentNode;
+        myLauncher.parentNode.removeChild(myLauncher);
+        var myLauncherContainer = document.createElement('div');
+        myLauncherContainer.id = 'myLauncher';
+        document.getElementsByTagName('body')[0].appendChild(myLauncherContainer);
+"""
+# ---------------------------------------------------------------------------

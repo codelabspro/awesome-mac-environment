@@ -1,5 +1,7 @@
 # awesome-mac-environment 
 
+These are the steps for having an awesome mac environment setup for developers (agnostic of language, framework, platform preferences)
+
 ### 1) Chrome
 
 Install Chrome

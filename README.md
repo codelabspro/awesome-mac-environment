@@ -567,11 +567,11 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 brew install rbenv ruby-build
 
-# Add rbenv to bash so that it loads every time you open a terminal
+Add rbenv to bash so that it loads every time you open a terminal
 echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile
 source ~/.bash_profile
 
-# Install Ruby
+Install Ruby
 rbenv install 2.4.0
 rbenv global 2.4.0
 ruby -v
@@ -595,11 +595,11 @@ brew install go
 
 ## 62) Install Yarn
 
-### 63) Install Charles proxy
+### 63) Install Charles proxy (Optional)
 
 ### 64) Install Postman
 
-### 65) Install Paws
+### 65) Install Paws (Optional : Not needed if Postman is preferred)
 
 ### 66) Install Stitch
 

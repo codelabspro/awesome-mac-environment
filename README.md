@@ -321,7 +321,7 @@ curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ruby
 ### 39) Check Ruby version
 
 ==> rvm list known
-# MRI Rubies
+MRI Rubies
 [ruby-]1.8.6[-p420]
 [ruby-]1.8.7[-head] # security released on head
 [ruby-]1.9.1[-p431]
@@ -334,15 +334,15 @@ curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ruby
 [ruby-]2.4[.0]
 ruby-head
 
-# for forks use: rvm install ruby-head-<name> --url https://github.com/github/ruby.git --branch 2.2
+for forks use: rvm install ruby-head-<name> --url https://github.com/github/ruby.git --branch 2.2
 
-# JRuby
+JRuby
 jruby-1.6[.8]
 jruby-1.7[.26]
 jruby[-9.1.7.0]
 jruby-head
 
-# Rubinius
+Rubinius
 rbx-1[.4.3]
 rbx-2.3[.0]
 rbx-2.4[.1]
@@ -350,34 +350,34 @@ rbx-2[.5.8]
 rbx[-3.71]
 rbx-head
 
-# Opal
+Opal
 opal
 
-# Minimalistic ruby implementation - ISO 30170:2012
+Minimalistic ruby implementation - ISO 30170:2012
 mruby-1.0.0
 mruby-1.1.0
 mruby-1[.2.0]
 mruby[-head]
 
-# Ruby Enterprise Edition
+Ruby Enterprise Edition
 ree-1.8.6
 ree[-1.8.7][-2012.02]
 
-# Topaz
+Topaz
 topaz
 
-# MagLev
+MagLev
 maglev[-head]
 maglev-1.0.0
 
-# Mac OS X Snow Leopard Or Newer
+Mac OS X Snow Leopard Or Newer
 macruby-0.10
 macruby-0.11
 macruby[-0.12]
 macruby-nightly
 macruby-head
 
-# IronRuby
+IronRuby
 ironruby[-1.1.3]
 ironruby-head
 
@@ -388,9 +388,9 @@ rvm rubies
 
 =* ruby-2.4.0 [ x86_64 ]
 
-# => - current
-# =* - current && default
-#  * - default
+=> - current
+=* - current && default
+* - default
 
 
 ### 40) Install latest version of Ruby as described here :
